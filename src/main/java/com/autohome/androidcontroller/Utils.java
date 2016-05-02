@@ -22,7 +22,8 @@ public class Utils {
      */
     public static boolean saveScreenShot(AndroidDriver driver, String path,
                                          String fileName, boolean isUC) {
-        fileName = fileName+(isUC?"-uc":"-qq");
+        deleteOldImage(path, isUC);
+        fileName = fileName + (isUC ? "-uc" : "-qq");
         File screen = driver.getScreenshotAs(OutputType.FILE);
         File screenFile = new File(path + "/" + fileName + ".png");
         try {
@@ -32,6 +33,35 @@ public class Utils {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 删除旧的截屏
+     *
+     * @param path
+     * @param isUC
+     */
+    private static void deleteOldImage(String path, boolean isUC) {
+        File file = new File(path);
+        if (!file.exists()){
+            file.mkdir();
+        }
+        File[] array = file.listFiles();
+        String absolutePath = "";
+        String browser = "qq";
+        if (isUC) {
+            browser = "uc";
+        }
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].isFile()) {
+                String str = array[i].getName();
+                if (str.contains("-") && str.contains(browser)) {
+                    absolutePath = absolutePath + path + File
+                            .separator + str;
+                    new File(absolutePath).delete();
+                }
+            }
+        }
     }
 
     /**
@@ -61,9 +91,9 @@ public class Utils {
         int width = driver.manage().window().getSize().width;
         int height = driver.manage().window().getSize().height;
         for (int i = 0; i < times; i++) {
-            driver.swipe(width / 2, (int) (height * 0.9), width / 2, (int)
+            driver.swipe(width / 2, (int) (height * 0.8), width / 2, (int)
                     (height * 0.1), 1000);
-            Utils.sleep(1);
+            Utils.sleep();
         }
         // wait for page loading
     }
@@ -77,19 +107,21 @@ public class Utils {
     public static void goToMHomePage(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         int width = driver.manage().window().getSize().width;
-        Utils.sleep(1);
-        driver.tap(1, width / 2, 370, 100);
-        Utils.sleep(1);
+        Utils.sleep();
+        if (isUC) {
+            driver.tap(1, width / 2, 370, 200);
+        } else {
+            driver.tap(1, width / 2, 140, 200);
+        }
+        Utils.sleep();
         Utils.cmdExecute("adb shell input text m.autohome.com.cn");
-        Utils.sleep(1);
-        driver.tap(1, 973, 144, 100);
-        Utils.sleep(1);
-        //if (isUC) {
-        //    Utils.cmdExecute("adb shell input keyevent 66");
-        //
-        //} else {
-        //
-        //}
+        Utils.sleep();
+        if (isUC) {
+            driver.tap(1, 1000, 140, 200);
+        } else {
+            driver.tap(1, 1000, 140, 200);
+        }
+        Utils.sleep();
     }
 
     /**
@@ -102,17 +134,18 @@ public class Utils {
         if (isUC) {
             driver.tap(1, 973, 1708, 100);
         } else {
-            driver.tap(1, 756, 1704, 1);
+            driver.tap(1, 756, 1704, 100);
         }
-        Thread.sleep(1);
+        sleep();
     }
 
     /**
      * 休眠 单位秒
-     * @param second
+     *
+     * @param
      */
-    public static void sleep(int second) throws InterruptedException {
-        Thread.sleep(second * 1000);
+    public static void sleep() throws InterruptedException {
+        Thread.sleep(1 * 1000);
     }
 
 
