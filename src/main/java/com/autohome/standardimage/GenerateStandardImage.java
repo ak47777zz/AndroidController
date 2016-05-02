@@ -21,7 +21,7 @@ public class GenerateStandardImage {
         for (Cut cut : cuts) {
             BufferedImage img = ImageUtil.cutNew(cut);
             ImageUtil.writeImage(cut.getPath() + File.separator + cut.getId()
-                    + "_" + cut.getBrowser(), img);
+                    + "_" + cut.getBrowser() + ".png", img);
         }
     }
 
