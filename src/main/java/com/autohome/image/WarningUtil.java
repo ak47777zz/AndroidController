@@ -14,7 +14,7 @@ public class WarningUtil {
     }
 
     /**
-     * 判断是否修改Excel并报警
+     * 判断是否屏蔽并报警
      *
      * @param
      */
@@ -34,11 +34,12 @@ public class WarningUtil {
         } else {
             //未屏蔽状态
             if (isSame) {
-                //上次未屏蔽，这次被屏蔽
-                //发短信
-            } else {
                 //上次未屏蔽，这次未屏蔽
                 ;
+            } else {
+                //上次未屏蔽，这次被屏蔽
+                shield[cut.getId() - 1] = true;
+                //发短信
             }
         }
     }
