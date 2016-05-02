@@ -1,7 +1,7 @@
 package com.autohome.page;
 
 /**
- * Created by sunao on 2016/5/2.
+ * 快报最终页
  */
 public class KuaiBaoFinalPage {
 }

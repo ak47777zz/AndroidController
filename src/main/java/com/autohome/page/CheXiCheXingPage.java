@@ -1,7 +1,7 @@
 package com.autohome.page;
 
 /**
- * Created by sunao on 2016/5/2.
+ * 车系车型综述
  */
 public class CheXiCheXingPage {
 }

@@ -6,7 +6,7 @@ import io.appium.java_client.android.AndroidDriver;
 import java.util.Date;
 
 /**
- * Created by Administrator on 2016/4/25.
+ * 首页
  */
 public class HomePage extends Page {
 
@@ -17,19 +17,17 @@ public class HomePage extends Page {
         String date = sdf.format(new Date());
         //1.首页顶部
         Utils.saveScreenShot(driver, "e:/image/1", date, isUC);
-        Thread.sleep(5 * 1000);
+        Utils.sleep();
         //2.首页右上角app下载
         Utils.saveScreenShot(driver, "e:/image/2", date, isUC);
-        Thread.sleep(3 * 1000);
-        //5.页面中部资讯列表icon
-        Utils.swipeToUp(driver, 5);
-        date = sdf.format(new Date());
-        Utils.saveScreenShot(driver, "e:/image/5", date, isUC);
-        //4.首页页面底部icon
-        Utils.swipeToUp(driver, 8);
-        date = sdf.format(new Date());
+        Utils.sleep();
+        //4.页面中部资讯列表icon
+        Utils.swipeToUp(driver, 6);
         Utils.saveScreenShot(driver, "e:/image/4", date, isUC);
-        Thread.sleep(5 * 1000);
+        //3.首页页面底部icon
+        Utils.swipeToUp(driver, 9);
+        Utils.saveScreenShot(driver, "e:/image/3", date, isUC);
+        Utils.sleep();
         //返回浏览器桌面
         Utils.backToHomePage(driver, isUC);
     }
