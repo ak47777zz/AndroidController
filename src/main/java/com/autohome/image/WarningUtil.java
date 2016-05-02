@@ -27,7 +27,6 @@ public class WarningUtil {
             if (isSame) {
                 //上次被屏蔽，现在屏蔽被修复
                 shield[cut.getId() - 1] = false;
-                //excel();
             } else {
                 //上次被屏蔽，这次还被屏蔽
                 ;
