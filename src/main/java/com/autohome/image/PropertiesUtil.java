@@ -1,9 +1,11 @@
 package com.autohome.image;
 
 import com.autohome.model.Cut;
+import com.autohome.page.Page;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Properties;
 
@@ -74,4 +76,29 @@ public class PropertiesUtil {
         }
         return cuts;
     }
+
+    /**
+     * 获取page实例
+     * @return
+     */
+    public static Page[] getPages() throws ClassNotFoundException,
+            IllegalAccessException, InstantiationException {
+        int i = 1;
+        ArrayList<String> className = new ArrayList<String>();
+        while (true) {
+            String page = properties.getProperty("page_"+i);
+            if(page!=null){
+                className.add(page);
+                i++;
+                continue;
+            }
+            break;
+        }
+        Page[] pages = new Page[i-1];
+        for (int j = 0; j < i-1; j++) {
+            pages[j] = (Page) Class.forName(className.get(j)).newInstance();
+        }
+        return pages;
+    }
+
 }

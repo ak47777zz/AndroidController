@@ -1,7 +1,6 @@
 package com.autohome.androidcontroller;
 
-import com.autohome.page.ArticleListPage;
-import com.autohome.page.HomePage;
+import com.autohome.image.PropertiesUtil;
 import com.autohome.page.Page;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -13,10 +12,10 @@ public class AndroidAuto {
     private AndroidDriver driver;
 
     //配置页面
-    public Page[] pages = new Page[]{
-            new HomePage(),
-            new ArticleListPage()
-    };
+    public Page[] pages = PropertiesUtil.getPages();
+
+    public AndroidAuto() throws IllegalAccessException, InstantiationException, ClassNotFoundException {
+    }
 
     public void loadUCDriver() throws Exception {
         //设置自动化相关参数
@@ -26,8 +25,8 @@ public class AndroidAuto {
         capabilities.setCapability("platformVersion", "4.4.2");
         capabilities.setCapability("deviceName", "Android Emulator");
         //设置app的主包名和主类名
-        capabilities.setCapability("appPackage", "com.UCMobile.x86");
-        //capabilities.setCapability("appPackage", "com.UCMobile");
+        //capabilities.setCapability("appPackage", "com.UCMobile.x86");
+        capabilities.setCapability("appPackage", "com.UCMobile");
         capabilities.setCapability("appActivity", "com.uc.browser" +
                 ".InnerUCMobile");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
@@ -44,9 +43,9 @@ public class AndroidAuto {
         capabilities.setCapability("platformVersion", "5.0.0");
         capabilities.setCapability("deviceName", "Android Emulator");
         //设置app的主包名和主类名
-        capabilities.setCapability("appPackage", "com.tencent.mtt.x86");
-        //capabilities.setCapability("appPackage", "com.tencent.mtt");
-        capabilities.setCapability("appActivity", "com.tencent.mtt.x86" +
+        //capabilities.setCapability("appPackage", "com.tencent.mtt.x86");
+        capabilities.setCapability("appPackage", "com.tencent.mtt");
+        capabilities.setCapability("appActivity", "com.tencent.mtt" +
                 ".MainActivity");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
                 capabilities);
@@ -80,6 +79,5 @@ public class AndroidAuto {
         AndroidAuto t = new AndroidAuto();
         t.start();
     }
-
 
 }
