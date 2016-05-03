@@ -25,8 +25,8 @@ public class AndroidAuto {
         capabilities.setCapability("platformVersion", "4.4.2");
         capabilities.setCapability("deviceName", "Android Emulator");
         //设置app的主包名和主类名
-        //capabilities.setCapability("appPackage", "com.UCMobile.x86");
-        capabilities.setCapability("appPackage", "com.UCMobile");
+        capabilities.setCapability("appPackage", "com.UCMobile.x86");
+        //capabilities.setCapability("appPackage", "com.UCMobile");
         capabilities.setCapability("appActivity", "com.uc.browser" +
                 ".InnerUCMobile");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
@@ -43,9 +43,9 @@ public class AndroidAuto {
         capabilities.setCapability("platformVersion", "5.0.0");
         capabilities.setCapability("deviceName", "Android Emulator");
         //设置app的主包名和主类名
-        //capabilities.setCapability("appPackage", "com.tencent.mtt.x86");
-        capabilities.setCapability("appPackage", "com.tencent.mtt");
-        capabilities.setCapability("appActivity", "com.tencent.mtt" +
+        capabilities.setCapability("appPackage", "com.tencent.mtt.x86");
+        //capabilities.setCapability("appPackage", "com.tencent.mtt");
+        capabilities.setCapability("appActivity", "com.tencent.mtt.x86" +
                 ".MainActivity");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
                 capabilities);

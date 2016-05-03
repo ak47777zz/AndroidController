@@ -22,10 +22,10 @@ public class HomePage extends Page {
         Utils.saveScreenShot(driver, "e:/image/2", date, isUC);
         Utils.sleep();
         //4.页面中部资讯列表icon
-        Utils.swipeToUp(driver, 6);
+        Utils.swipeToUp(driver, 7);
         Utils.saveScreenShot(driver, "e:/image/4", date, isUC);
         //3.首页页面底部icon
-        Utils.swipeToUp(driver, 9);
+        Utils.swipeToUp(driver, 10);
         Utils.saveScreenShot(driver, "e:/image/3", date, isUC);
         Utils.sleep();
         //返回浏览器桌面
