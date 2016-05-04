@@ -1,4 +1,4 @@
-package com.autohome.androidcontroller;
+package com.autohome.utils;
 
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.io.FileUtils;
@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Created by Administrator on 2016/4/22.
  */
-public class Utils {
+public class AndroidUtils {
 
     /**
      * 截屏并保存至指定路径
@@ -43,7 +43,7 @@ public class Utils {
      */
     private static void deleteOldImage(String path, boolean isUC) {
         File file = new File(path);
-        if (!file.exists()){
+        if (!file.exists()) {
             file.mkdir();
         }
         File[] array = file.listFiles();
@@ -93,7 +93,7 @@ public class Utils {
         for (int i = 0; i < times; i++) {
             driver.swipe(width / 2, (int) (height * 0.8), width / 2, (int)
                     (height * 0.1), 1000);
-            Utils.sleep();
+            AndroidUtils.sleep();
         }
         // wait for page loading
     }
@@ -107,21 +107,21 @@ public class Utils {
     public static void goToMHomePage(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         int width = driver.manage().window().getSize().width;
-        Utils.sleep();
+        AndroidUtils.sleep();
         if (isUC) {
             driver.tap(1, width / 2, 370, 200);
         } else {
             driver.tap(1, width / 2, 140, 200);
         }
-        Utils.sleep();
-        Utils.cmdExecute("adb shell input text m.autohome.com.cn");
-        Utils.sleep();
+        AndroidUtils.sleep();
+        AndroidUtils.cmdExecute("adb shell input text m.autohome.com.cn");
+        AndroidUtils.sleep();
         if (isUC) {
             driver.tap(1, 1000, 140, 200);
         } else {
             driver.tap(1, 1000, 140, 200);
         }
-        Utils.sleep();
+        AndroidUtils.sleep();
     }
 
     /**
@@ -132,9 +132,9 @@ public class Utils {
     public static void backToHomePage(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         if (isUC) {
-            driver.tap(1, 973, 1708, 100);
+            driver.tap(1, 973, 1708, 300);
         } else {
-            driver.tap(1, 756, 1704, 100);
+            driver.tap(1, 756, 1704, 300);
         }
         sleep();
     }
@@ -145,7 +145,22 @@ public class Utils {
      * @param
      */
     public static void sleep() throws InterruptedException {
-        Thread.sleep(1 * 1000);
+        Thread.sleep(10 * 1000);
+    }
+
+    /**
+     * 浏览器后退一步
+     *
+     * @param driver
+     * @param times  后退次数
+     * @param isUC   是否是UC
+     */
+    public static void stepBack(AndroidDriver driver, int times, boolean
+            isUC) throws InterruptedException {
+        for (int i = 0; i < times; i++) {
+            driver.tap(1, 100, 1700, 100);
+            sleep();
+        }
     }
 
 

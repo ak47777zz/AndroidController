@@ -1,13 +1,17 @@
 package com.autohome.androidcontroller;
 
-import com.autohome.image.PropertiesUtil;
+import com.autohome.utils.PropertiesUtil;
 import com.autohome.page.Page;
+import com.autohome.utils.AndroidUtils;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+/**
+ * 自动化截屏
+ */
 public class AndroidAuto {
     private AndroidDriver driver;
 
@@ -61,7 +65,7 @@ public class AndroidAuto {
                 loadQQDriver();
             }
             driver.launchApp();
-            Utils.sleep();
+            AndroidUtils.sleep();
             try {
                 for (Page page : pages) {
                     page.execute(driver, i == 0);

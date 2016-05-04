@@ -1,4 +1,4 @@
-package com.autohome.image;
+package com.autohome.utils;
 
 import org.apache.commons.codec.digest.DigestUtils;
 

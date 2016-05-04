@@ -1,4 +1,4 @@
-package com.autohome.image;
+package com.autohome.utils;
 
 import com.autohome.model.Cut;
 import com.autohome.page.Page;

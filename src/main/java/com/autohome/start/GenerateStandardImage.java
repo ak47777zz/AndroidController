@@ -1,8 +1,9 @@
-package com.autohome.standardimage;
+package com.autohome.start;
 
-import com.autohome.image.ImageUtil;
-import com.autohome.image.PropertiesUtil;
+import com.autohome.androidcontroller.AndroidAuto;
 import com.autohome.model.Cut;
+import com.autohome.utils.ImageUtil;
+import com.autohome.utils.PropertiesUtil;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -14,7 +15,7 @@ public class GenerateStandardImage {
 
     public void start() throws Exception {
         //1.截屏
-        //new AndroidAuto().start();
+        new AndroidAuto().start();
         //2.切图，保存为标准图片
         Cut[] cuts = PropertiesUtil.getCutModels();
         for (Cut cut : cuts) {

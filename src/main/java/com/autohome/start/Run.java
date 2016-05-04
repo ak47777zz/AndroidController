@@ -1,21 +1,24 @@
-package com.autohome.image;
+package com.autohome.start;
 
 import com.autohome.androidcontroller.AndroidAuto;
+import com.autohome.utils.ImageUtil;
+import com.autohome.utils.PropertiesUtil;
+import com.autohome.utils.WarningUtil;
 import com.autohome.model.Cut;
 
 import java.io.IOException;
 import java.text.ParseException;
 
 /**
- * Created by sunao on 2016/4/19.
+ * 运行
  */
-public class Main {
+public class Run {
 
     private Cut[] cuts = PropertiesUtil.getCutModels();
 
     private int sleepTime;
 
-    public Main() throws IOException {
+    public Run() throws IOException {
         this.sleepTime = PropertiesUtil.getInt("sleepTime");
     }
 
@@ -23,13 +26,14 @@ public class Main {
     private void start() throws Exception {
         AndroidAuto android = new AndroidAuto();
         while (true) {
-            android.start();
+            //android.start();
             //18个位置，每个位置2种浏览器，所以比较36次
             for (Cut cut : cuts) {
                 boolean b = compare(cut);
                 WarningUtil.warning(cut, b);
             }
             Thread.sleep(sleepTime * 1000);
+            System.out.println(1);
         }
     }
 
@@ -45,7 +49,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception {
-        new Main().start();
+        new Run().start();
     }
 
 }

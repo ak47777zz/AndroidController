@@ -1,4 +1,4 @@
-package com.autohome.image;
+package com.autohome.utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -45,15 +45,15 @@ public class TwoDMatrix {
         BufferedImage img = ImageIO.read(is);
        
        /* 1. Reduce size. 
-        * Like Average Hash, pHash starts with a small image. 
-        * However, the image is larger than 8x8; 32x32 is a good size. 
+        * Like Average Hash, pHash starts with a small utils.
+        * However, the utils is larger than 8x8; 32x32 is a good size.
         * This is really done to simplify the DCT computation and not 
         * because it is needed to reduce the high frequencies.
         */
         img = resize(img, size, size);
        
        /* 2. Reduce color. 
-        * The image is reduced to a grayscale just to further simplify 
+        * The utils is reduced to a grayscale just to further simplify
         * the number of computations.
         */
         img = grayscale(img);
@@ -67,7 +67,7 @@ public class TwoDMatrix {
         }
        
        /* 3. Compute the DCT. 
-        * The DCT separates the image into a collection of frequencies 
+        * The DCT separates the utils into a collection of frequencies
         * and scalars. While JPEG uses an 8x8 DCT, this algorithm uses 
         * a 32x32 DCT.
         */
@@ -103,7 +103,7 @@ public class TwoDMatrix {
         * below the average value. The result doesn't tell us the 
         * actual low frequencies; it just tells us the very-rough 
         * relative scale of the frequencies to the mean. The result 
-        * will not vary as long as the overall structure of the image 
+        * will not vary as long as the overall structure of the utils
         * remains the same; this can survive gamma and color histogram 
         * adjustments without a problem.
         */
