@@ -26,7 +26,7 @@ public class Run {
     private void start() throws Exception {
         AndroidAuto android = new AndroidAuto();
         while (true) {
-            //android.start();
+            android.start();
             //18个位置，每个位置2种浏览器，所以比较36次
             for (Cut cut : cuts) {
                 boolean b = compare(cut);

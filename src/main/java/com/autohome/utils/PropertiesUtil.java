@@ -61,8 +61,15 @@ public class PropertiesUtil {
      * @return
      */
     public static Cut[] getCutModels() {
-        Cut[] cuts = new Cut[getInt("size")];
-        for (int i = 1; i <= cuts.length; i++) {
+        int size = getInt("size");
+        Cut[] cuts = new Cut[size];
+        int i = 1;
+        int j = 0;
+        while (size > 0) {
+            if (properties.getProperty(String.valueOf(i)) == null) {
+                i++;
+                continue;
+            }
             Cut cut = new Cut();
             String[] s = properties.getProperty(String.valueOf(i)).split(",");
             cut.setId(i);
@@ -72,13 +79,17 @@ public class PropertiesUtil {
             cut.setEndY(Integer.parseInt(s[3]));
             cut.setPath(s[4]);
             cut.setBrowser(s[5]);
-            cuts[i-1] = cut;
+            cuts[j] = cut;
+            i++;
+            j++;
+            size--;
         }
         return cuts;
     }
 
     /**
      * 获取page实例
+     *
      * @return
      */
     public static Page[] getPages() throws ClassNotFoundException,
@@ -86,19 +97,20 @@ public class PropertiesUtil {
         int i = 1;
         ArrayList<String> className = new ArrayList<String>();
         while (true) {
-            String page = properties.getProperty("page_"+i);
-            if(page!=null){
+            String page = properties.getProperty("page_" + i);
+            if (page != null) {
                 className.add(page);
                 i++;
                 continue;
             }
             break;
         }
-        Page[] pages = new Page[i-1];
-        for (int j = 0; j < i-1; j++) {
+        Page[] pages = new Page[i - 1];
+        for (int j = 0; j < i - 1; j++) {
             pages[j] = (Page) Class.forName(className.get(j)).newInstance();
         }
         return pages;
     }
+
 
 }

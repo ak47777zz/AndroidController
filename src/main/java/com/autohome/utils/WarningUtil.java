@@ -1,6 +1,10 @@
 package com.autohome.utils;
 
 import com.autohome.model.Cut;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Administrator on 2016/4/27.
@@ -18,7 +22,7 @@ public class WarningUtil {
      *
      * @param
      */
-    public static void warning(Cut cut, boolean isSame) {
+    public static void warning(Cut cut, boolean isSame) throws IOException {
 
         boolean isShield = shield[cut.getId() - 1];
 
@@ -40,9 +44,20 @@ public class WarningUtil {
             } else {
                 //上次未屏蔽，这次被屏蔽
                 shield[cut.getId() - 1] = true;
-                //发短信
+                //报警
+                writeMessage(cut.getBrowser()+"浏览器位置"+(cut.getId()+1)/2+"被屏蔽");
                 System.out.println(cut.getBrowser()+"浏览器位置"+(cut.getId()+1)/2+"被屏蔽");
             }
         }
     }
+
+    /**
+     * 文件内写入消息
+     * @param s
+     */
+    private static void writeMessage(String s) throws IOException {
+        FileUtils.write(new File("e:/image/warning.txt"), s+"\r\n","UTF-8",true);
+    }
+
+
 }

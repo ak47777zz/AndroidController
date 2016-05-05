@@ -12,7 +12,7 @@ public class ArticleFinalPage extends Page {
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         //6.文章最终页顶部
-        driver.tap(1, 540, 940, 100);
+        driver.tap(1, 540, 1400, 100);
         AndroidUtils.sleep();
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/6", data, isUC);
