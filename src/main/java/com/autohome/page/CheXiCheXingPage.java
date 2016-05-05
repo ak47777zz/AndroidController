@@ -19,5 +19,8 @@ public class CheXiCheXingPage extends Page{
         //11.车型车系顶部
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/11", data, isUC);
+        //12.车型车系 页面中下部文字链??
+        AndroidUtils.sleep();
+        AndroidUtils.saveScreenShot(driver, "e:/image/12", data, isUC);
     }
 }

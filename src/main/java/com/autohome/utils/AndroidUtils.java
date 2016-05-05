@@ -145,7 +145,7 @@ public class AndroidUtils {
      * @param
      */
     public static void sleep() throws InterruptedException {
-        Thread.sleep(PropertiesUtil.getInt("stepTime"));
+        Thread.sleep(PropertiesUtil.getInt("stepTime")*1000);
     }
 
     /**
@@ -162,6 +162,5 @@ public class AndroidUtils {
             sleep();
         }
     }
-
 
 }

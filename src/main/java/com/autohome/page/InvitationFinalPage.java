@@ -6,17 +6,17 @@ import io.appium.java_client.android.AndroidDriver;
 import java.util.Date;
 
 /**
- * 找车首页、列表页
+ * 帖子最终页
  */
-public class FindCarPage extends Page{
+public class InvitationFinalPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        AndroidUtils.stepBack(driver, 2, isUC);
-        //13.找车首页
-        driver.tap(1, 320, 650, 300);
+        AndroidUtils.swipeToUp(driver,1);
+        driver.tap(1,540,450,300);
         AndroidUtils.sleep();
+        //18.帖子最终页
         String data = sdf.format(new Date());
-        AndroidUtils.saveScreenShot(driver, "e:/image/13", data, isUC);
-        AndroidUtils.stepBack(driver, 1, isUC);
+        AndroidUtils.saveScreenShot(driver, "e:/image/18", data, isUC);
+        AndroidUtils.backToHomePage(driver,isUC);
     }
 }
