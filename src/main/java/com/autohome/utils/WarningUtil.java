@@ -32,6 +32,7 @@ public class WarningUtil {
                 //上次被屏蔽，现在屏蔽被修复
                 shield[cut.getId() - 1] = false;
                 System.out.println(cut.getBrowser()+"浏览器位置"+(cut.getId()+1)/2+"被修复");
+                writeMessage(cut.getBrowser()+"浏览器位置"+(cut.getId()+1)/2+"被修复");
             } else {
                 //上次被屏蔽，这次还被屏蔽
                 ;

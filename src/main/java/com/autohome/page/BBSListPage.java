@@ -11,7 +11,7 @@ import java.util.Date;
 public class BBSListPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        driver.tap(1,970,640,300);
+        driver.tap(1,115,1452,100);
         AndroidUtils.sleep();
         //17.论坛列表
         String data = sdf.format(new Date());

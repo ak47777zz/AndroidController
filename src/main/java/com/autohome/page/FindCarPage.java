@@ -11,9 +11,8 @@ import java.util.Date;
 public class FindCarPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        AndroidUtils.stepBack(driver, 2, isUC);
         //13.找车首页
-        driver.tap(1, 320, 650, 300);
+        driver.tap(1, 320, 650, 100);
         AndroidUtils.sleep();
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/13", data, isUC);

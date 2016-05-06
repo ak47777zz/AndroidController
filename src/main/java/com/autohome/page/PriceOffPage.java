@@ -12,7 +12,7 @@ public class PriceOffPage extends Page {
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
-        driver.tap(1, 750, 740, 300);
+        driver.tap(1, 750, 740, 100);
         AndroidUtils.sleep();
         //14.降价首页
         String data = sdf.format(new Date());

@@ -132,9 +132,9 @@ public class AndroidUtils {
     public static void backToHomePage(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         if (isUC) {
-            driver.tap(1, 973, 1708, 300);
+            driver.tap(1, 973, 1708, 100);
         } else {
-            driver.tap(1, 756, 1704, 300);
+            driver.tap(1, 756, 1704, 100);
         }
         sleep();
     }

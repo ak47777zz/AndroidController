@@ -12,10 +12,10 @@ public class ShuoKeFinalPage extends Page {
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         //点击说客
-        driver.tap(1, 753, 736, 300);
+        driver.tap(1, 753, 736, 100);
         AndroidUtils.sleep();
         //点击具体文章
-        driver.tap(1, 540, 940, 300);
+        driver.tap(1, 540, 940, 100);
         AndroidUtils.sleep();
         String data = sdf.format(new Date());
         //7.说客最终页顶部

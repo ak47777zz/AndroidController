@@ -10,9 +10,9 @@ import java.util.Date;
  */
 public class VideoFinalPage extends Page {
     public void execute(AndroidDriver driver,boolean isUC) throws InterruptedException {
-        driver.tap(1,100,730,300);
+        driver.tap(1,100,730,100);
         AndroidUtils.sleep();
-        driver.tap(1,540,1000,300);
+        driver.tap(1,540,1000,100);
         AndroidUtils.sleep();
         String data = sdf.format(new Date());
         //8.视频最终页顶部

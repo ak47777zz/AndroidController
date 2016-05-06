@@ -33,7 +33,6 @@ public class Run {
                 WarningUtil.warning(cut, b);
             }
             Thread.sleep(sleepTime * 1000);
-            System.out.println(1);
         }
     }
 
