@@ -13,10 +13,13 @@ public class ArticleListPage extends Page {
 
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
-        AndroidUtils.goToMHomePage(driver,isUC);
-        //点击文章
-        driver.tap(1, 105, 650, 100);
-        AndroidUtils.sleep();
+        if (isUC) {
+            driver.tap(1, 540, 370, 200);
+        } else {
+            driver.tap(1, 540, 140, 200);
+        }
+        String url = "http://m.autohome.com.cn/channel/#pvareaid=104784";
+        AndroidUtils.goToPage(driver,url);
         //5.文章列表顶部
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/5", data, isUC);

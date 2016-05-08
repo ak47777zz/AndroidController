@@ -21,7 +21,7 @@ public class AndroidUtils {
      * @return
      */
     public static boolean saveScreenShot(AndroidDriver driver, String path,
-                                         String fileName, boolean isUC) {
+                                         String fileName, boolean isUC) throws InterruptedException {
         deleteOldImage(path, isUC);
         fileName = fileName + (isUC ? "-uc" : "-qq");
         File screen = driver.getScreenshotAs(OutputType.FILE);
@@ -41,7 +41,8 @@ public class AndroidUtils {
      * @param path
      * @param isUC
      */
-    private static void deleteOldImage(String path, boolean isUC) {
+    private static void deleteOldImage(String path, boolean isUC) throws
+            InterruptedException {
         File file = new File(path);
         if (!file.exists()) {
             file.mkdir();
@@ -59,6 +60,8 @@ public class AndroidUtils {
                     absolutePath = absolutePath + path + File
                             .separator + str;
                     new File(absolutePath).delete();
+                    AndroidUtils.sleep();
+                    absolutePath = "";
                 }
             }
         }
@@ -125,6 +128,21 @@ public class AndroidUtils {
     }
 
     /**
+     * 进入指定url的页面
+     *
+     * @param url
+     */
+    public static void goToPage(AndroidDriver driver, String url) throws
+            InterruptedException {
+        driver.tap(1, 540, 140, 200);
+        sleep();
+        cmdExecute("adb shell input text " + url);
+        sleep();
+        driver.tap(1, 1000, 140, 200);
+        sleep();
+    }
+
+    /**
      * 截完图后，回到浏览器桌面
      *
      * @param driver
@@ -145,7 +163,7 @@ public class AndroidUtils {
      * @param
      */
     public static void sleep() throws InterruptedException {
-        Thread.sleep(PropertiesUtil.getInt("stepTime")*1000);
+        Thread.sleep(PropertiesUtil.getInt("stepTime") * 1000);
     }
 
     /**
@@ -162,5 +180,6 @@ public class AndroidUtils {
             sleep();
         }
     }
+
 
 }

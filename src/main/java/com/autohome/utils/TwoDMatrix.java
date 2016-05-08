@@ -182,15 +182,9 @@ public class TwoDMatrix {
         String image1;
         String image2;
         try {
-            image1 = p.getHash(new FileInputStream(new File("e:/1.jpg")));
-            image2 = p.getHash(new FileInputStream(new File("e:/1.jpg")));
+            image1 = p.getHash(new FileInputStream(new File("e:/image/test/1.png")));
+            image2 = p.getHash(new FileInputStream(new File("e:/image/test/2.png")));
             System.out.println("1:1 Score is " + p.distance(image1, image2));
-            image1 = p.getHash(new FileInputStream(new File("e:/1.jpg")));
-            image2 = p.getHash(new FileInputStream(new File("e:/2.jpg")));
-            System.out.println("1:2 Score is " + p.distance(image1, image2));
-            image1 = p.getHash(new FileInputStream(new File("e:/1.jpg")));
-            image2 = p.getHash(new FileInputStream(new File("e:/3.jpg")));
-            System.out.println("1:3 Score is " + p.distance(image1, image2));
             //image1 = p.getHash(new FileInputStream(new File
             // ("C:/Users/june/Desktop/2.jpg")));
             //image2 = p.getHash(new FileInputStream(new File

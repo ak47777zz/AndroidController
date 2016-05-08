@@ -11,11 +11,11 @@ import java.util.Date;
 public class BBSHomePage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        driver.tap(1,970,640,100);
-        AndroidUtils.sleep();
+        String url = "http://club.m.autohome.com.cn/#pvareaid=100238";
+        AndroidUtils.goToPage(driver, url);
         //16.论坛首页
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/16", data, isUC);
-
+        AndroidUtils.sleep();
     }
 }

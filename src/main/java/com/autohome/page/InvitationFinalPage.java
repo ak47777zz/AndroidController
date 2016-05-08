@@ -11,9 +11,9 @@ import java.util.Date;
 public class InvitationFinalPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        AndroidUtils.swipeToUp(driver,1);
-        driver.tap(1,540,450,100);
-        AndroidUtils.sleep();
+        String url = "http://club.m.autohome.com" +
+                ".cn/bbs/thread-c-770-51630536-1.html";
+        AndroidUtils.goToPage(driver, url);
         //18.帖子最终页
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/18", data, isUC);

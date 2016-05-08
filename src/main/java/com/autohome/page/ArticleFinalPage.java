@@ -12,12 +12,14 @@ public class ArticleFinalPage extends Page {
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         //6.文章最终页顶部
-        driver.tap(1, 540, 1400, 100);
+        String url = "http://m.autohome.com.cn/news/201605/888297.html#pvareaid=2028162";
+        AndroidUtils.goToPage(driver,url);
+        //driver.tap(1, 540, 1400, 100);
         AndroidUtils.sleep();
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/6", data, isUC);
         AndroidUtils.sleep();
-        AndroidUtils.stepBack(driver,1,isUC);
-        AndroidUtils.sleep();
+        //AndroidUtils.stepBack(driver,1,isUC);
+        //AndroidUtils.sleep();
     }
 }

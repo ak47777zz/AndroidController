@@ -28,4 +28,6 @@ public class GenerateStandardImage {
     public static void main(String[] args) throws Exception {
         new GenerateStandardImage().start();
     }
+
+
 }

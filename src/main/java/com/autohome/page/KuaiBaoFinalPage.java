@@ -11,12 +11,11 @@ import java.util.Date;
 public class KuaiBaoFinalPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        driver.tap(1,320,730,100);
-        AndroidUtils.sleep();
-        driver.tap(1,540,1000,100);
+        String url = "http://kuaibao.m.autohome.com.cn/message/306/#pvareaid=104502";
+        AndroidUtils.goToPage(driver, url);
         //10.快报最终页顶部
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/10", data, isUC);
-        AndroidUtils.stepBack(driver,2,isUC);
+        AndroidUtils.sleep();
     }
 }

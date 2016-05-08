@@ -58,7 +58,7 @@ public class AndroidAuto {
 
 
     public void start() throws Exception {
-        for (int i = 1; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {
             if (i == 0) {
                 loadUCDriver();
             } else {
