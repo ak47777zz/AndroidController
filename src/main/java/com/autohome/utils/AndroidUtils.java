@@ -21,7 +21,8 @@ public class AndroidUtils {
      * @return
      */
     public static boolean saveScreenShot(AndroidDriver driver, String path,
-                                         String fileName, boolean isUC) throws InterruptedException {
+                                         String fileName, boolean isUC)
+            throws InterruptedException {
         deleteOldImage(path, isUC);
         fileName = fileName + (isUC ? "-uc" : "-qq");
         File screen = driver.getScreenshotAs(OutputType.FILE);
@@ -59,7 +60,11 @@ public class AndroidUtils {
                 if (str.contains("-") && str.contains(browser)) {
                     absolutePath = absolutePath + path + File
                             .separator + str;
-                    new File(absolutePath).delete();
+                    while (true) {
+                        if (new File(absolutePath).delete()) {
+                            break;
+                        }
+                    }
                     AndroidUtils.sleep();
                     absolutePath = "";
                 }
@@ -134,11 +139,11 @@ public class AndroidUtils {
      */
     public static void goToPage(AndroidDriver driver, String url) throws
             InterruptedException {
-        driver.tap(1, 540, 140, 200);
+        driver.tap(1, 540, 140, 50);
         sleep();
         cmdExecute("adb shell input text " + url);
         sleep();
-        driver.tap(1, 1000, 140, 200);
+        driver.tap(1, 1000, 140, 100);
         sleep();
     }
 
@@ -179,6 +184,10 @@ public class AndroidUtils {
             driver.tap(1, 100, 1700, 100);
             sleep();
         }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        deleteOldImage("e:/image/10",true);
     }
 
 
