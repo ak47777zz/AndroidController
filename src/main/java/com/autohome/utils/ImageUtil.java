@@ -93,6 +93,7 @@ public class ImageUtil {
         BufferedImage standard = standards[cut.getId() - 1];
         //return MD5Util.compareInMD5(standard, sub);
         return matrix.compare(standard, sub);
+
     }
 
     /**
