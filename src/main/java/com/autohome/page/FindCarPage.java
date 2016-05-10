@@ -12,7 +12,7 @@ public class FindCarPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
         //13.找车首页
-        String url = "http://car.m.autohome.com.cn/#pvareaid=100235";
+        String url = "car.m.autohome.com.cn";
         AndroidUtils.goToPage(driver, url);
         String data = sdf.format(new Date());
         AndroidUtils.saveScreenShot(driver, "e:/image/13", data, isUC);

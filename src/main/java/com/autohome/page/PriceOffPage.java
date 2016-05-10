@@ -12,9 +12,7 @@ public class PriceOffPage extends Page {
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
-        String url = "http://buy.m.autohome.com" +
-                ".cn/0/0/0/110000/110100/0-1-1-1" +
-                ".html?pvareaid=104788\"\\&\"SourceType=0";
+        String url = "buy.m.autohome.com.cn/0/0/0/110000/110100/0-1-1-1.html";
         AndroidUtils.goToPage(driver, url);
         //14.降价首页
         String data = sdf.format(new Date());

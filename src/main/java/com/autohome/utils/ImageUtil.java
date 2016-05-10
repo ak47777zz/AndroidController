@@ -80,6 +80,7 @@ public class ImageUtil {
 
     /**
      * 比较图片是否相等，相同返回true
+     *
      * @param
      * @param
      * @return
@@ -99,8 +100,11 @@ public class ImageUtil {
      * @return
      */
     public static BufferedImage readImage(String path) throws IOException {
-        return ImageIO.read(new FileInputStream(new File
-                (path)));
+        FileInputStream in = new FileInputStream(new File
+                (path));
+        BufferedImage img = ImageIO.read(in);
+        in.close();
+        return img;
     }
 
     /**

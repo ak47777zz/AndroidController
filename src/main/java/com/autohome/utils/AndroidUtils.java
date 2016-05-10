@@ -60,12 +60,7 @@ public class AndroidUtils {
                 if (str.contains("-") && str.contains(browser)) {
                     absolutePath = absolutePath + path + File
                             .separator + str;
-                    while (true) {
-                        if (new File(absolutePath).delete()) {
-                            break;
-                        }
-                    }
-                    AndroidUtils.sleep();
+                    new File(absolutePath).delete();
                     absolutePath = "";
                 }
             }
@@ -139,7 +134,7 @@ public class AndroidUtils {
      */
     public static void goToPage(AndroidDriver driver, String url) throws
             InterruptedException {
-        driver.tap(1, 540, 140, 50);
+        driver.tap(1, 540, 140, 10);
         sleep();
         cmdExecute("adb shell input text " + url);
         sleep();
@@ -187,7 +182,7 @@ public class AndroidUtils {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        deleteOldImage("e:/image/10",true);
+        deleteOldImage("e:/image/10", true);
     }
 
 

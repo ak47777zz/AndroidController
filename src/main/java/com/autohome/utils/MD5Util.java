@@ -20,6 +20,8 @@ public class MD5Util {
         ImageIO.write(standard, "png", out1);
         String s1 = DigestUtils.md5Hex(out.toByteArray());
         String s2 = DigestUtils.md5Hex(out1.toByteArray());
+        out.close();
+        out1.close();
         return s1.equals(s2);
     }
 

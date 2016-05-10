@@ -11,8 +11,7 @@ import java.util.Date;
 public class ShuoKeFinalPage extends Page {
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
-        String url = "http://m.autohome.com.cn/shuoke/517569" +
-                ".html#pvareaid=2028164";
+        String url = "m.autohome.com.cn/shuoke/517569.html";
         AndroidUtils.goToPage(driver, url);
         String data = sdf.format(new Date());
         //7.说客最终页顶部

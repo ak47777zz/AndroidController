@@ -11,7 +11,7 @@ import java.util.Date;
 public class InvitationFinalPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        String url = "http://club.m.autohome.com" +
+        String url = "club.m.autohome.com" +
                 ".cn/bbs/thread-c-770-51630536-1.html";
         AndroidUtils.goToPage(driver, url);
         //18.帖子最终页

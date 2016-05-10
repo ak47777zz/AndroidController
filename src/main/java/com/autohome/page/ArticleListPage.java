@@ -18,7 +18,7 @@ public class ArticleListPage extends Page {
         } else {
             driver.tap(1, 540, 140, 200);
         }
-        String url = "http://m.autohome.com.cn/channel/#pvareaid=104784";
+        String url = "m.autohome.com.cn/channel";
         AndroidUtils.goToPage(driver,url);
         //5.文章列表顶部
         String data = sdf.format(new Date());

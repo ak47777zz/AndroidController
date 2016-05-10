@@ -11,7 +11,7 @@ import java.util.Date;
 public class CheXiCheXingPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        String url = "http://m.autohome.com.cn/145/#pvareaid=103224";
+        String url = "m.autohome.com.cn/145/";
         AndroidUtils.goToPage(driver,url);
         //11.车型车系顶部
         String data = sdf.format(new Date());

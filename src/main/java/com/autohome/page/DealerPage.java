@@ -12,8 +12,7 @@ public class DealerPage extends Page {
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
-        String url = "http://dealer.m.autohome.com.cn/list_110100_0_1_1" +
-                ".html#pvareaid=104787";
+        String url = "dealer.m.autohome.com.cn/list_110100_0_1_1.html";
         AndroidUtils.goToPage(driver, url);
         //15.经销商首页
         String data = sdf.format(new Date());

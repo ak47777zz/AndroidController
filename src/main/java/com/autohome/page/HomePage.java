@@ -25,7 +25,7 @@ public class HomePage extends Page {
         //AndroidUtils.swipeToUp(driver, 7);
         AndroidUtils.saveScreenShot(driver, "e:/image/4", date, isUC);
         //3.首页页面底部icon
-        AndroidUtils.swipeToUp(driver, 18);
+        //AndroidUtils.swipeToUp(driver, 18);
         AndroidUtils.saveScreenShot(driver, "e:/image/3", date, isUC);
         AndroidUtils.sleep();
         AndroidUtils.backToHomePage(driver, isUC);

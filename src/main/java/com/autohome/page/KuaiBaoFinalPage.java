@@ -11,7 +11,7 @@ import java.util.Date;
 public class KuaiBaoFinalPage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        String url = "http://kuaibao.m.autohome.com.cn/message/306/#pvareaid=104502";
+        String url = "kuaibao.m.autohome.com.cn/message/306";
         AndroidUtils.goToPage(driver, url);
         //10.快报最终页顶部
         String data = sdf.format(new Date());

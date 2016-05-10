@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class VideoFinalPage extends Page {
     public void execute(AndroidDriver driver,boolean isUC) throws InterruptedException {
-        String url = "http://v.m.autohome.com.cn/v-79986.html#pvareaid=2040104";
+        String url = "v.m.autohome.com.cn/v-79986.html";
         AndroidUtils.goToPage(driver, url);
         String data = sdf.format(new Date());
         //8.视频最终页顶部

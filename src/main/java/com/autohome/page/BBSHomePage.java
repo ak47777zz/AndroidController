@@ -11,7 +11,7 @@ import java.util.Date;
 public class BBSHomePage extends Page{
     @Override
     public void execute(AndroidDriver driver, boolean isUC) throws InterruptedException {
-        String url = "http://club.m.autohome.com.cn/#pvareaid=100238";
+        String url = "club.m.autohome.com.cn";
         AndroidUtils.goToPage(driver, url);
         //16.论坛首页
         String data = sdf.format(new Date());
