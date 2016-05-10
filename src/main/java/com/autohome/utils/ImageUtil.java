@@ -14,6 +14,8 @@ import java.text.ParseException;
  */
 public class ImageUtil {
 
+    public static TwoDMatrix matrix = new TwoDMatrix();
+
     public static BufferedImage[] standards = null;
 
     /**
@@ -85,12 +87,12 @@ public class ImageUtil {
      * @param
      * @return
      */
-    public static boolean compare(Cut cut) throws IOException,
-            ParseException {
+    public static boolean compare(Cut cut) throws Exception {
         BufferedImage sub = cutNew(cut);
         //获取标准图片
         BufferedImage standard = standards[cut.getId() - 1];
-        return MD5Util.compareInMD5(standard, sub);
+        //return MD5Util.compareInMD5(standard, sub);
+        return matrix.compare(standard, sub);
     }
 
     /**

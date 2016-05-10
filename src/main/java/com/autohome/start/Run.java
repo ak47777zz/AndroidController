@@ -1,13 +1,12 @@
 package com.autohome.start;
 
 import com.autohome.androidcontroller.AndroidAuto;
+import com.autohome.model.Cut;
 import com.autohome.utils.ImageUtil;
 import com.autohome.utils.PropertiesUtil;
 import com.autohome.utils.WarningUtil;
-import com.autohome.model.Cut;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 /**
  * 运行
@@ -43,7 +42,7 @@ public class Run {
      * @return
      * @throws IOException
      */
-    private boolean compare(Cut cut) throws IOException, ParseException {
+    private boolean compare(Cut cut) throws Exception {
         return ImageUtil.compare(cut);
     }
 

@@ -7,8 +7,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.ColorConvertOp;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 /**
  * 以二维矩阵方式判断图像是否相等
@@ -18,7 +16,7 @@ public class TwoDMatrix {
     private int size = 32;
     private int smallerSize = 8;
 
-    private TwoDMatrix() {
+    public TwoDMatrix() {
         initCoefficients();
     }
 
@@ -41,10 +39,8 @@ public class TwoDMatrix {
 
     // Returns a 'binary string' (like. 001010111011100010) which is easy to
     // do a hamming distance on.
-    private String getHash(InputStream is) throws Exception {
-        BufferedImage img = ImageIO.read(is);
-       
-       /* 1. Reduce size. 
+    private String getHash(BufferedImage img) throws Exception {
+       /* 1. Reduce size.
         * Like Average Hash, pHash starts with a small utils.
         * However, the utils is larger than 8x8; 32x32 is a good size.
         * This is really done to simplify the DCT computation and not 
@@ -73,7 +69,7 @@ public class TwoDMatrix {
         */
         long start = System.currentTimeMillis();
         double[][] dctVals = applyDCT(vals);
-        System.out.println("DCT: " + (System.currentTimeMillis() - start));
+        //System.out.println("DCT: " + (System.currentTimeMillis() - start));
        
        /* 4. Reduce the DCT. 
         * This is the magic step. While the DCT is 32x32, just keep the 
@@ -176,29 +172,36 @@ public class TwoDMatrix {
         return F;
     }
 
+    /**
+     * 以二维矩阵的方式检测图片是否一致.
+     * @param standard
+     * @param sub
+     * @return
+     * @throws Exception
+     */
+    public boolean compare(BufferedImage standard, BufferedImage sub) throws
+            Exception {
+        String image1 = getHash(standard);
+        String image2 = getHash(sub);
+        return distance(image1, image2) == 0;
+    }
+
+
     public static void main(String[] args) {
 
         TwoDMatrix p = new TwoDMatrix();
         String image1;
         String image2;
         try {
-            image1 = p.getHash(new FileInputStream(new File("e:/image/test/1.png")));
-            image2 = p.getHash(new FileInputStream(new File("e:/image/test/2.png")));
-            System.out.println("1:1 Score is " + p.distance(image1, image2));
-            //image1 = p.getHash(new FileInputStream(new File
-            // ("C:/Users/june/Desktop/2.jpg")));
-            //image2 = p.getHash(new FileInputStream(new File
-            // ("C:/Users/june/Desktop/3.jpg")));
-            //System.out.println("2:3 Score is " + p.distance(image1, image2));
-            //
-            //image1 = p.getHash(new FileInputStream(new File
-            // ("C:/Users/june/Desktop/4.jpg")));
-            //image2 = p.getHash(new FileInputStream(new File
-            // ("C:/Users/june/Desktop/5.jpg")));
-            //System.out.println("4:5 Score is " + p.distance(image1, image2));
+            BufferedImage img1 = ImageIO.read(new FileInputStream(new File
+                    ("e:/image/1/1_uc.png")));
+            BufferedImage img2 = ImageIO.read(new FileInputStream(new File
+                    ("e:/image/5/9_uc.png")));
+            image1 = p.getHash(img1);
+            image2 = p.getHash(img2);
+            System.out.println("1:1 Score is " + p.distance(image1,
+                    image2));
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
         }
