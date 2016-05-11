@@ -14,9 +14,9 @@ public class ArticleListPage extends Page {
     public void execute(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         if (isUC) {
-            driver.tap(1, 540, 370, 200);
+            driver.tap(1, 540, 370, 10);
         } else {
-            driver.tap(1, 540, 140, 200);
+            driver.tap(1, 540, 140, 10);
         }
         String url = "m.autohome.com.cn/channel";
         AndroidUtils.goToPage(driver,url);

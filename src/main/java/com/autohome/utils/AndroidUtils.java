@@ -112,17 +112,17 @@ public class AndroidUtils {
         int width = driver.manage().window().getSize().width;
         AndroidUtils.sleep();
         if (isUC) {
-            driver.tap(1, width / 2, 370, 200);
+            driver.tap(1, width / 2, 370, 10);
         } else {
-            driver.tap(1, width / 2, 140, 200);
+            driver.tap(1, width / 2, 140, 10);
         }
         AndroidUtils.sleep();
         AndroidUtils.cmdExecute("adb shell input text m.autohome.com.cn");
         AndroidUtils.sleep();
         if (isUC) {
-            driver.tap(1, 1000, 140, 200);
+            driver.tap(1, 1000, 140, 10);
         } else {
-            driver.tap(1, 1000, 140, 200);
+            driver.tap(1, 1000, 140, 10);
         }
         AndroidUtils.sleep();
     }
@@ -134,11 +134,11 @@ public class AndroidUtils {
      */
     public static void goToPage(AndroidDriver driver, String url) throws
             InterruptedException {
-        driver.tap(1, 540, 140, 10);
+        driver.tap(1, 540, 140, 1);
         sleep();
         cmdExecute("adb shell input text " + url);
         sleep();
-        driver.tap(1, 1000, 140, 100);
+        driver.tap(1, 1000, 140, 10);
         sleep();
     }
 
@@ -150,9 +150,9 @@ public class AndroidUtils {
     public static void backToHomePage(AndroidDriver driver, boolean isUC) throws
             InterruptedException {
         if (isUC) {
-            driver.tap(1, 973, 1708, 100);
+            driver.tap(1, 973, 1708, 10);
         } else {
-            driver.tap(1, 756, 1704, 100);
+            driver.tap(1, 756, 1704, 10);
         }
         sleep();
     }
@@ -176,7 +176,7 @@ public class AndroidUtils {
     public static void stepBack(AndroidDriver driver, int times, boolean
             isUC) throws InterruptedException {
         for (int i = 0; i < times; i++) {
-            driver.tap(1, 100, 1700, 100);
+            driver.tap(1, 100, 1700, 10);
             sleep();
         }
     }
