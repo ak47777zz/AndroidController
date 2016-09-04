@@ -1,0 +1,7 @@
+diff a/config.properties b/config.properties	(rejected hunks)
+@@ -1,4 +0,4 @@
+-#Android 4.2.2�汾�� Nexus5   12
++#Android 4.2.2�汾�� Nexus5   121
+ # �������� ��λ����
+ sleepTime=10
+ #ÿһ�����ʱ�� ��λ����
